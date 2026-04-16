@@ -1,0 +1,25 @@
+name: traffic-signs
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26
+  - pandas>=2.1
+  - pytorch>=2.2
+  - torchvision>=0.17
+  - cpuonly            # replace with `pytorch-cuda=12.1` + channel `nvidia` for GPU
+  - pillow>=10.0
+  - scikit-learn>=1.4
+  - matplotlib>=3.8
+  - seaborn>=0.13
+  - pyyaml>=6.0
+  - rich>=13.0
+  - tqdm>=4.66
+  - pydantic>=2.6
+  - pip:
+      - opencv-python-headless>=4.8
+      # - tensorflow>=2.15   # uncomment only if retraining the Keras baseline
