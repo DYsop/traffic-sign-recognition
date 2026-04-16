@@ -1,6 +1,6 @@
 # Traffic-Sign Recognition on GTSRB
 
-[![CI](https://github.com/<your-user>/traffic-sign-recognition/actions/workflows/ci.yml/badge.svg)](https://github.com/<your-user>/traffic-sign-recognition/actions/workflows/ci.yml)
+[![CI](https://github.com/<DYsop>/traffic-sign-recognition/actions/workflows/ci.yml/badge.svg)](https://github.com/<DYsop>/traffic-sign-recognition/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2%2B-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -91,7 +91,7 @@ traffic-sign-recognition/
 ### 1. Install
 
 ```bash
-git clone https://github.com/<your-user>/traffic-sign-recognition.git
+git clone https://github.com/<DYsop>/traffic-sign-recognition.git
 cd traffic-sign-recognition
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate

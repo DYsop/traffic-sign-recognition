@@ -39,8 +39,8 @@ traffic-signs-eval    = "traffic_signs.cli:evaluate_cli"
 traffic-signs-predict = "traffic_signs.cli:predict_cli"
 
 [project.urls]
-Homepage = "https://github.com/<your-user>/traffic-sign-recognition"
-Issues   = "https://github.com/<your-user>/traffic-sign-recognition/issues"
+Homepage = "https://github.com/<DYsop>/traffic-sign-recognition"
+Issues   = "https://github.com/<DYsop>/traffic-sign-recognition/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
