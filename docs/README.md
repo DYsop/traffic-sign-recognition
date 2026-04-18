@@ -42,7 +42,7 @@ MIT licence.
 | 01 | [Introduction](01_introduction.md) | _complete_ |
 | 02 | [Related Work](02_related_work.md) | _complete_ |
 | 03 | [Dataset](03_dataset.md) | _complete_ |
-| 04 | [Methodology](04_methodology.md) | _pending_ |
+| 04 | [Methodology](04_methodology.md) | _complete_ |
 | 05 | [Architectures](05_architectures.md) | _pending_ |
 | 06 | [Training Setup](06_training_setup.md) | _pending_ |
 | 07 | [Results](07_results.md) | _pending_ |
