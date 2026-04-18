@@ -51,9 +51,7 @@ def _ensure_dataset_present() -> None:
 
 
 def _random_image_for_class(class_dir: Path, rng: random.Random) -> Image.Image:
-    candidates = sorted(
-        list(class_dir.glob("*.ppm")) + list(class_dir.glob("*.png"))
-    )
+    candidates = sorted(list(class_dir.glob("*.ppm")) + list(class_dir.glob("*.png")))
     if not candidates:
         raise RuntimeError(f"No images in {class_dir}")
     path = rng.choice(candidates)
@@ -81,7 +79,7 @@ def make_sample_grid(out_path: Path) -> None:
         ax.set_xticks([])
         ax.set_yticks([])
     # Hide any unused subplots.
-    for ax in axes.flat[len(class_dirs):]:
+    for ax in axes.flat[len(class_dirs) :]:
         ax.axis("off")
 
     fig.suptitle("GTSRB — one random image per class", fontsize=12, y=1.01)
@@ -99,9 +97,7 @@ def make_class_distribution(out_path: Path) -> None:
 
     class_dirs = sorted(p for p in TRAIN_DIR.iterdir() if p.is_dir())
     counts_dict = {
-        int(d.name): sum(
-            1 for _ in list(d.glob("*.ppm")) + list(d.glob("*.png"))
-        )
+        int(d.name): sum(1 for _ in list(d.glob("*.ppm")) + list(d.glob("*.png")))
         for d in class_dirs
     }
     counts = pd.Series(counts_dict).sort_values(ascending=False)
