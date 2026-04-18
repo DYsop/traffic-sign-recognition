@@ -1,0 +1,54 @@
+Die präzise Stufe-4-Spezifikation (pre-registriert, bevor irgendein Code kommt)
+Architektur: TrafficSignNetV2
+Eine einzelne Architektur, keine weitere Variante. Begründung in der Reihenfolge der Änderungen:
+
+Input-Größe 64×64 (statt 48×48) — kleine Schilder profitieren, GPU-Budget erlaubt es problemlos
+Pre-Activation ResNet-Struktur mit vier Blöcken (BN→ReLU→Conv, 32-64-128-256 Kanäle) mit Residual-Connections
+GlobalAveragePooling statt Flatten — weniger Parameter, keine Overfitting-Anfälligkeit des FC-Kopfs
+Dropout (0.3) nur im Kopf, nicht in Conv-Blöcken
+Class-weighted CrossEntropyLoss mit Gewichten ∝ 1/sqrt(class_count)
+
+Training
+
+Optimizer: AdamW, lr=1e-3, weight_decay=5e-4
+Scheduler: 1-Cycle LR mit max_lr=3e-3, pct_start=0.1
+Label Smoothing: 0.1
+Mixed Precision (AMP): an — 2× Speedup
+Batch Size: 256 (RTX 5090 langweilt sich bei 64)
+Epochs: 60
+Early Stopping: patience=15 auf Val-Loss
+
+Augmentation — gezielter, nicht nur mehr
+
+Affine: Rotation ±15°, Translation ±10 %, Scale 0.85-1.15
+Perspektive-Verzerrung (p=0.3, distortion_scale=0.25)
+ColorJitter: nur Helligkeit/Kontrast ±20 %, kein Hue/Saturation (verfälscht Schild-Farben zu stark)
+Random Erasing (p=0.25) — simuliert Verdeckungen
+Kein Horizontal Flip (wie gehabt)
+
+Inference
+
+Test-Time Augmentation (TTA): 5 Crops (Mitte + 4 leicht verschobene) + horizontale Spiegelung deaktiviert (Richtungsschilder!)
+Logits werden gemittelt vor Softmax
+
+Seed-Protokoll
+
+Drei vollständige Trainingsläufe mit Seeds 42, 1337, 2024
+Finale Zahl: Mittelwert ± StdDev aus den drei Test-Accuracys
+
+Ablation-Tabelle (pre-registriert)
+Wir messen den isolierten Beitrag von:
+
+base (V2 ohne alle Extras)
++ AMP
++ Class-weighted Loss
++ Label Smoothing
++ 1-Cycle LR
++ Random Erasing
++ TTA
++ Ensemble (V2 + STN + DeepNet) — finaler Schritt
+
+Falls das Ensemble nötig ist, um die 99 % zu knacken
+Dann diverse Modelle mitteln — V2, STN, DeepNet — nicht fünf identische V2s. Das ist legitime Technik mit pädagogischem Wert (Diversity vs. Repetition).
+Ehrliche Prognose
+Mit dieser Liste halte ich 98,8-99,3 % für realistisch. Die 99-%-Marke ist knacken-bar, aber nicht garantiert. Falls wir am Ende bei 98,85 % landen, steht das so im Repo — und das ist eine bessere LinkedIn-Story als eine erschlichene 99,1 %.

@@ -1,6 +1,6 @@
 model: deep_traffic_net
 seed: 42
-device: auto
+device: cpu
 
 data:
   train_dir: data/raw/GTSRB/Final_Training/Images
@@ -8,7 +8,7 @@ data:
   image_size: 48
   num_classes: 43
   val_split: 0.2
-  num_workers: 4
+  num_workers: 0
 
 train:
   epochs: 20

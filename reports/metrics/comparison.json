@@ -1,0 +1,29 @@
+[
+  {
+    "Model": "traffic_sign_net",
+    "Test Accuracy": 0.9874901029295329,
+    "Top-5 Accuracy": 0.9991290577988915,
+    "Test Loss": 0.038324770007543314,
+    "MCC": 0.987011265576953,
+    "Cohen's Kappa": 0.9870030932083258,
+    "N (test)": 12630
+  },
+  {
+    "Model": "traffic_sign_net_stn",
+    "Test Accuracy": 0.9794140934283452,
+    "Top-5 Accuracy": 0.9980205859065716,
+    "Test Loss": 0.0701700186777214,
+    "MCC": 0.9786278205868362,
+    "Cohen's Kappa": 0.9786100227656893,
+    "N (test)": 12630
+  },
+  {
+    "Model": "deep_traffic_net",
+    "Test Accuracy": 0.9808392715756136,
+    "Top-5 Accuracy": 0.9978622327790974,
+    "Test Loss": 0.07116102557440213,
+    "MCC": 0.9801017587104065,
+    "Cohen's Kappa": 0.9800912758392599,
+    "N (test)": 12630
+  }
+]
