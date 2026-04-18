@@ -64,7 +64,7 @@ def _random_image_for_class(class_dir: Path, rng: random.Random) -> Image.Image:
 # Figure 3.1 — sample grid, one image per class
 # ---------------------------------------------------------------------------
 def make_sample_grid(out_path: Path) -> None:
-    """Render one random image per class on an 8×6 grid."""
+    """Render one random image per class on an 8 by 6 grid."""
 
     rng = random.Random(SEED)
     class_dirs = sorted(p for p in TRAIN_DIR.iterdir() if p.is_dir())
@@ -74,7 +74,7 @@ def make_sample_grid(out_path: Path) -> None:
     rows = (len(class_dirs) + cols - 1) // cols  # 6 for 43 classes
     fig, axes = plt.subplots(rows, cols, figsize=(12, rows * 1.8))
 
-    for ax, class_dir in zip(axes.flat, class_dirs):
+    for ax, class_dir in zip(axes.flat, class_dirs, strict=False):
         img = _random_image_for_class(class_dir, rng).resize((64, 64))
         ax.imshow(img)
         ax.set_title(f"{int(class_dir.name)}", fontsize=9)
@@ -149,7 +149,7 @@ def make_directional_flips(out_path: Path) -> None:
         y=0.99,
     )
 
-    for col, (cls, caption) in enumerate(zip(FLIP_CLASSES, FLIP_CAPTIONS)):
+    for col, (cls, caption) in enumerate(zip(FLIP_CLASSES, FLIP_CAPTIONS, strict=True)):
         class_dir = TRAIN_DIR / f"{cls:05d}"
         img = _random_image_for_class(class_dir, rng).resize((96, 96))
         flipped = ImageOps.mirror(img)
