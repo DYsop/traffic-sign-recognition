@@ -39,7 +39,7 @@ MIT licence.
 | # | Chapter | Status |
 |---|---|---|
 | 00 | [Abstract](00_abstract.md) | _pending_ |
-| 01 | [Introduction](01_introduction.md) | _pending_ |
+| 01 | [Introduction](01_introduction.md) | _complete_ |
 | 02 | [Related Work](02_related_work.md) | _pending_ |
 | 03 | [Dataset](03_dataset.md) | _pending_ |
 | 04 | [Methodology](04_methodology.md) | _pending_ |
