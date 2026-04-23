@@ -93,9 +93,13 @@ $d_{\mathrm{in}}$ to $d_{\mathrm{out}}$ dimensions contributes
 $d_{\mathrm{in}} \cdot d_{\mathrm{out}} + d_{\mathrm{out}}$. Summing
 across the layers of `TrafficSignNet` gives
 
-$$P^{\mathrm{conv}} = 896 + 18{,}496 + 73{,}856 = 93{,}248, \qquad P^{\mathrm{bn}} = 64 + 128 + 256 + 512 = 960, \tag{5.1}$$
+$$
+P^{\mathrm{conv}} = 896 + 18{,}496 + 73{,}856 = 93{,}248, \qquad P^{\mathrm{bn}} = 64 + 128 + 256 + 512 = 960, \tag{5.1}
+$$
 
-$$P^{\mathrm{dense}} = (2048 \cdot 256 + 256) + (256 \cdot 43 + 43) = 524{,}544 + 11{,}051 = 535{,}595, \tag{5.2}$$
+$$
+P^{\mathrm{dense}} = (2048 \cdot 256 + 256) + (256 \cdot 43 + 43) = 524{,}544 + 11{,}051 = 535{,}595, \tag{5.2}
+$$
 
 summing to a total of **629 803** parameters. Equivalently, the
 model has approximately 0.63 M parameters, a parameter budget that
@@ -146,14 +150,18 @@ Formally, let $\mathbf{x} \in \mathbb{R}^{3 \times H \times W}$
 denote the input image. The localisation subnetwork $g_\phi$
 produces a vector of six real numbers from $\mathbf{x}$:
 
-$$g_\phi(\mathbf{x}) = (\theta_{11}, \theta_{12}, \theta_{13}, \theta_{21}, \theta_{22}, \theta_{23}) \in \mathbb{R}^{6}. \tag{5.3}$$
+$$
+g_\phi(\mathbf{x}) = (\theta_{11}, \theta_{12}, \theta_{13}, \theta_{21}, \theta_{22}, \theta_{23}) \in \mathbb{R}^{6}. \tag{5.3}
+$$
 
 These six numbers are arranged into a $2 \times 3$ affine matrix
 $\boldsymbol{\Theta}$ whose first row is
 $(\theta_{11}, \theta_{12}, \theta_{13})$ and whose second row is
 $(\theta_{21}, \theta_{22}, \theta_{23})$:
 
-$$\boldsymbol{\Theta} = \mathrm{reshape}\bigl((\theta_{11}, \theta_{12}, \theta_{13}, \theta_{21}, \theta_{22}, \theta_{23}), (2, 3)\bigr). \tag{5.4}$$
+$$
+\boldsymbol{\Theta} = \mathrm{reshape}\bigl((\theta_{11}, \theta_{12}, \theta_{13}, \theta_{21}, \theta_{22}, \theta_{23}), (2, 3)\bigr). \tag{5.4}
+$$
 
 The first two columns of $\boldsymbol{\Theta}$ encode rotation,
 scaling, and shear, and its third column encodes translation. For
@@ -161,7 +169,9 @@ each spatial location $(i, j)$ in the output tensor, the grid
 generator computes a corresponding sampling location
 $(u_{ij}, v_{ij})$ in the input by the affine map
 
-$$u_{ij} = \theta_{11} x_{ij} + \theta_{12} y_{ij} + \theta_{13}, \qquad v_{ij} = \theta_{21} x_{ij} + \theta_{22} y_{ij} + \theta_{23}, \tag{5.5}$$
+$$
+u_{ij} = \theta_{11} x_{ij} + \theta_{12} y_{ij} + \theta_{13}, \qquad v_{ij} = \theta_{21} x_{ij} + \theta_{22} y_{ij} + \theta_{23}, \tag{5.5}
+$$
 
 where $(x_{ij}, y_{ij})$ is the normalised coordinate of output
 location $(i, j)$ in the range $[-1, +1]$. The sampler then
@@ -182,7 +192,9 @@ cannot recover. Following the recommendation of [Jaderberg et al.
 of the localisation head is initialised to the identity
 transformation, with weights zeroed and bias set to
 
-$$\mathbf{b} = (1,\ 0,\ 0,\ 0,\ 1,\ 0)^{\top}. \tag{5.6}$$
+$$
+\mathbf{b} = (1,\ 0,\ 0,\ 0,\ 1,\ 0)^{\top}. \tag{5.6}
+$$
 
 With this initialisation, $\boldsymbol{\Theta}$ at training
 initialisation is the identity affine matrix, the sampling grid
@@ -217,7 +229,9 @@ the configuration released with the baseline v0.2.0 code.
 The total parameter count of `TrafficSignNet-STN` aggregates as
 follows:
 
-$$P^{\mathrm{STN}} = 3194 + 20710 + 93696 + 1190955 = 1308555 \tag{5.7}$$
+$$
+P^{\mathrm{STN}} = 3194 + 20710 + 93696 + 1190955 = 1308555 \tag{5.7}
+$$
 
 where the four terms correspond respectively to the localisation
 subnetwork's convolutional layers (3 194), the localisation
