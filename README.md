@@ -15,7 +15,7 @@ official 12 630-image test set.
 |---|---:|---|
 | `TrafficSignNet` | 630 k | Three-block CNN baseline (Conv + BN + MaxPool + Dropout) |
 | `TrafficSignNet-STN` | 1.3 M | Baseline with a *Spatial Transformer Network* front-end that learns to align the sign |
-| `DeepTrafficNet` | 6.3 M | Five-block CNN with a three-layer MLP head |
+| `DeepTrafficNet` | 2.0 M | Five-block CNN with a three-layer MLP head |
 
 The project started as a single Jupyter notebook and was refactored into a
 library + CLI + test suite so that third parties can reproduce the results
