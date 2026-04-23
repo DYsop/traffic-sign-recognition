@@ -38,9 +38,7 @@ def build_augmentation_pipeline() -> transforms.Compose:
     return transforms.Compose(
         [
             transforms.Resize((48, 48)),
-            transforms.ColorJitter(
-                brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1
-            ),
+            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
             transforms.RandomAffine(degrees=15, translate=(0.1, 0.1), shear=10),
             transforms.RandomPerspective(distortion_scale=0.2, p=0.5),
         ]

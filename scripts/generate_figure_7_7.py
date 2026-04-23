@@ -54,9 +54,7 @@ PANEL_COLOUR = {
 }
 
 
-def compute_worst_classes(
-    test_metrics: dict, n: int = 5
-) -> list[tuple[int, float, int, int]]:
+def compute_worst_classes(test_metrics: dict, n: int = 5) -> list[tuple[int, float, int, int]]:
     """Return the n classes with lowest per-class accuracy.
 
     Returns: list of (class_idx, accuracy, correct, support) tuples, ascending.
@@ -68,9 +66,7 @@ def compute_worst_classes(
     acc = np.where(support > 0, correct / support, 1.0)
 
     worst_indices = np.argsort(acc)[:n]
-    return [
-        (int(c), float(acc[c]), int(correct[c]), int(support[c])) for c in worst_indices
-    ]
+    return [(int(c), float(acc[c]), int(correct[c]), int(support[c])) for c in worst_indices]
 
 
 def load_metrics(metrics_root: Path) -> dict[str, dict]:
@@ -104,9 +100,7 @@ def render_panel(
     y_pos = np.arange(len(labels))
     colour = PANEL_COLOUR[model_key]
 
-    bars = ax.barh(
-        y_pos, accuracies, color=colour, alpha=0.85, edgecolor="black", linewidth=0.5
-    )
+    bars = ax.barh(y_pos, accuracies, color=colour, alpha=0.85, edgecolor="black", linewidth=0.5)
     ax.set_yticks(y_pos)
     ax.set_yticklabels(labels, fontsize=9)
     ax.set_xlim(60, 100)
