@@ -69,8 +69,7 @@ def compute_worst_classes(
 
     worst_indices = np.argsort(acc)[:n]
     return [
-        (int(c), float(acc[c]), int(correct[c]), int(support[c]))
-        for c in worst_indices
+        (int(c), float(acc[c]), int(correct[c]), int(support[c])) for c in worst_indices
     ]
 
 
@@ -97,7 +96,7 @@ def render_panel(
 
     labels = []
     accuracies = []
-    for cls_idx, acc, correct, support in worst:
+    for cls_idx, acc, _correct, _support in worst:
         name = CLASS_NAMES.get(cls_idx, f"Class {cls_idx}")
         labels.append(f"{cls_idx:02d} · {name}")
         accuracies.append(acc * 100)
@@ -105,7 +104,9 @@ def render_panel(
     y_pos = np.arange(len(labels))
     colour = PANEL_COLOUR[model_key]
 
-    bars = ax.barh(y_pos, accuracies, color=colour, alpha=0.85, edgecolor="black", linewidth=0.5)
+    bars = ax.barh(
+        y_pos, accuracies, color=colour, alpha=0.85, edgecolor="black", linewidth=0.5
+    )
     ax.set_yticks(y_pos)
     ax.set_yticklabels(labels, fontsize=9)
     ax.set_xlim(60, 100)
