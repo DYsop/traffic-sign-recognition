@@ -45,7 +45,7 @@ MIT licence.
 | 04 | [Methodology](04_methodology.md) | _complete_ |
 | 05 | [Architectures](05_architectures.md) | _complete_ |
 | 06 | [Training Setup](06_training_setup.md) | _complete_ |
-| 07 | [Results](07_results.md) | _pending_ |
+| 07 | [Results](07_results.md) | _complete_ |
 | 08 | [Discussion](08_discussion.md) | _pending_ |
 | 09 | [Engineering](09_engineering.md) | _pending_ |
 | 10 | [Reproducibility](10_reproducibility.md) | _pending_ |
