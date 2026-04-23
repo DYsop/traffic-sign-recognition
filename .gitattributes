@@ -10,4 +10,3 @@
 *.pdf     binary
 *.zip     binary
 # Strip notebook outputs before commit to respect GitHub render limits
-*.ipynb filter=nbstripout
