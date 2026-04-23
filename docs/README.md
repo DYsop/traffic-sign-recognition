@@ -48,7 +48,7 @@ MIT licence.
 | 07 | [Results](07_results.md) | _complete_ |
 | 08 | [Discussion](08_discussion.md) | _complete_ |
 | 09 | [Engineering](09_engineering.md) | _complete_ |
-| 10 | [Reproducibility](10_reproducibility.md) | _pending_ |
+| 10 | [Reproducibility](10_reproducibility.md) | _complete_ |
 | 11 | [Future Work](11_future_work.md) | _pending_ |
 | —  | [References](references.md) | _seeded_ |
 | —  | [Style Guide](STYLE.md) | _internal_ |
