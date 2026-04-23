@@ -161,7 +161,7 @@ each spatial location $(i, j)$ in the output tensor, the grid
 generator computes a corresponding sampling location
 $(u_{ij}, v_{ij})$ in the input by the affine map
 
-$$u_{ij} = \theta_{11}\, x_{ij} + \theta_{12}\, y_{ij} + \theta_{13}, \qquad v_{ij} = \theta_{21}\, x_{ij} + \theta_{22}\, y_{ij} + \theta_{23}, \tag{5.5}$$
+$$u_{ij} = \theta_{11} x_{ij} + \theta_{12} y_{ij} + \theta_{13}, \qquad v_{ij} = \theta_{21} x_{ij} + \theta_{22} y_{ij} + \theta_{23}, \tag{5.5}$$
 
 where $(x_{ij}, y_{ij})$ is the normalised coordinate of output
 location $(i, j)$ in the range $[-1, +1]$. The sampler then
@@ -217,7 +217,7 @@ the configuration released with the baseline v0.2.0 code.
 The total parameter count of `TrafficSignNet-STN` aggregates as
 follows:
 
-$$P^{\mathrm{STN}} = 3\,194 + 20\,710 + 93\,696 + 1\,190\,955 = 1\,308\,555 \tag{5.7}$$
+$$P^{\mathrm{STN}} = 3194 + 20710 + 93696 + 1190955 = 1308555 \tag{5.7}$$
 
 where the four terms correspond respectively to the localisation
 subnetwork's convolutional layers (3 194), the localisation
