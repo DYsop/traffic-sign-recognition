@@ -139,12 +139,13 @@ $\hat{y}_i \in \{0, \ldots, K-1\}$ the predicted label.
 **Accuracy.** The fraction of test samples that are correctly
 classified:
 
+**Equation (4.1):**
+
 $$
-\mathrm{accuracy} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{1}[\hat{y}_i = y_i]
-\tag{4.1}
+\mathrm{accuracy} = \frac{1}{N}\sum_{i=1}^{N} \mathbf{1}[\hat{y}_i = y_i]
 $$
 
-where $\mathbb{1}[\cdot]$ is the indicator function. Accuracy is
+where $\mathbf{1}[\cdot]$ is the indicator function. Accuracy is
 the most commonly reported metric and the most intuitive to
 interpret, but it is also the metric most sensitive to class
 imbalance: a classifier that achieves zero accuracy on the eight
@@ -158,9 +159,10 @@ theoretical one.
 ground-truth label is among the five highest-probability predicted
 classes:
 
+**Equation (4.2):**
+
 $$
-\mathrm{accuracy}_{\mathrm{top}\text{-}5} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{1}[y_i \in \mathrm{top}_5(f_\theta(\mathbf{x}_i))]
-\tag{4.2}
+\mathrm{accuracy}_{\mathrm{top}\text{-}5} = \frac{1}{N}\sum_{i=1}^{N} \mathbf{1}[y_i \in \mathrm{top}_5(f_\theta(\mathbf{x}_i))]
 $$
 
 where $f_\theta(\mathbf{x}_i) \in \mathbb{R}^K$ denotes the
@@ -180,25 +182,28 @@ in § 3.6.
 scores. For class $c$, let $\mathrm{prec}_c$ and $\mathrm{rec}_c$
 denote the precision and recall of the classifier on that class:
 
+**Equation (4.3):**
+
 $$
 \mathrm{prec}_c = \frac{\mathrm{TP}_c}{\mathrm{TP}_c + \mathrm{FP}_c}, \qquad \mathrm{rec}_c = \frac{\mathrm{TP}_c}{\mathrm{TP}_c + \mathrm{FN}_c}
-\tag{4.3}
 $$
 
 where $\mathrm{TP}_c$, $\mathrm{FP}_c$, and $\mathrm{FN}_c$ denote
 the counts of true positives, false positives, and false negatives
 for class $c$ respectively. The per-class F1 is the harmonic mean
 
+**Equation (4.4):**
+
 $$
 F_{1,c} = \frac{2 \cdot \mathrm{prec}_c \cdot \mathrm{rec}_c}{\mathrm{prec}_c + \mathrm{rec}_c}
-\tag{4.4}
 $$
 
 and the macro-averaged F1 is
 
+**Equation (4.5):**
+
 $$
 F_1^{\mathrm{macro}} = \frac{1}{K}\sum_{c=0}^{K-1} F_{1,c}.
-\tag{4.5}
 $$
 
 The significance of macro-averaging rather than micro-averaging is
@@ -212,9 +217,10 @@ MCC is computed from the confusion matrix $\mathbf{C}$ with
 $C_{jk}$ denoting the count of samples with ground-truth class $j$
 predicted as class $k$:
 
+**Equation (4.6):**
+
 $$
 \mathrm{MCC} = \frac{\sum_{jk}C_{kk}C_{jj} - C_{jk}C_{kj}}{\sqrt{\left(\sum_{k}(\sum_{j}C_{jk})(\sum_{j'\neq j}\sum_{k'}C_{j'k'})\right)\left(\sum_{k}(\sum_{j}C_{kj})(\sum_{j'\neq j}\sum_{k'}C_{k'j'})\right)}}
-\tag{4.6}
 $$
 
 This multi-class generalisation is due to Gorodkin and is summarised
@@ -232,9 +238,10 @@ accuracy lacks.
 Cohen's $\kappa$ measures the agreement between predicted and
 ground-truth labels adjusted for the agreement expected by chance:
 
+**Equation (4.7):**
+
 $$
 \kappa = \frac{p_o - p_e}{1 - p_e}
-\tag{4.7}
 $$
 
 where $p_o$ is the observed agreement (equal to accuracy for the
