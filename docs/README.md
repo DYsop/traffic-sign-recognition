@@ -44,7 +44,7 @@ MIT licence.
 | 03 | [Dataset](03_dataset.md) | _complete_ |
 | 04 | [Methodology](04_methodology.md) | _complete_ |
 | 05 | [Architectures](05_architectures.md) | _complete_ |
-| 06 | [Training Setup](06_training_setup.md) | _pending_ |
+| 06 | [Training Setup](06_training_setup.md) | _complete_ |
 | 07 | [Results](07_results.md) | _pending_ |
 | 08 | [Discussion](08_discussion.md) | _pending_ |
 | 09 | [Engineering](09_engineering.md) | _pending_ |
